@@ -1,82 +1,96 @@
 import Head from 'next/head'
+import Cards from '../Components/Cards'
+import Header from '../Components/Header'
+import Herobanner from '../Components/Herobanner'
+import Largecard from '../Components/Largecard'
+import Midcontent from '../Components/Midcontent'
+import Footer from './../Components/Footer';
+
+// Images
+// import heroimage from "../assests/rolls2.jpg"
+import heroimage from "../assests/services.jpg"
+import heroimage2 from "../assests/hero4.jpg"
+// import heroimage2 from "../assests/alphard.jpg"
+import midimage1 from '../assests/actioncard1.jpg'
+import midimage2 from '../assests/actioncardpackage.jpg'
+import midimage3 from '../assests/actioncardwax.jpg'
+import midimage4 from '../assests/actioncardtint.jpg'
+import midimage5 from '../assests/actioncardwash.jpg'
+import midimage6 from '../assests/actioncardinterior.jpg'
+
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className=" bg-white">
       <Head>
-        <title>Create Next App</title>
+        <title>Miyagis Malaysia</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"/> 
       </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <Header/>
+      <section>
+        <Herobanner
+          hero = {heroimage}
+          firsttext = 'Wax on'
+          secondtext = 'Wax Off'
+          buttontext = 'Get a free quote'
+        />
+      </section>
+      <main className=' max-w-6xl mx-auto'>
+        <section>
+          <p className=' text-5xl font-semibold uppercase text-center text-bold mt-10 font-montserrat tracking-widest pb-5 border-b border-red-600'> What we do</p>
+          
+          {/* <p className='text-xl font-semibold text-red-600 text-center text-bold mb-3'>____________________________________________</p> */}
+          <p className=' text-sm text-center  mt-5 mb-10'> So many options to choose from, but which suits your needs most?</p>
+          {/* <Cards/> */}
+          <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-x-1 font-montserrat'>
+            <Midcontent
+              image = {midimage1}
+              text = 'Ceramic Coating'
+            />
+            <Midcontent
+              image = {midimage2}
+              text = 'Package Detailing'
+            />
+            <Midcontent
+              image = {midimage3}
+              text = 'Polish and Waxing'
+            />
+            <Midcontent
+              image = {midimage4}
+              text = 'Window Tinting'
+            />
+            <Midcontent
+              image = {midimage5}
+              text = 'Membership Car Wash'
+            />
+            <Midcontent
+              image = {midimage6}
+              text = 'Interior Detailing'
+            />
+          </div>
+        </section>
       </main>
+      <section className='py-10'>
+        <Herobanner className='bg-opacity-30'
+          hero = {heroimage2}
+          firsttext = 'Exclusive Packages Available'
+          secondtext = 'all make, all models'
+          buttontext = 'Explore Packages >'
+        />
+      </section>
+      <section className='bg-gray-100'>
+        {/* <Largecard/> */}
+      </section>
+      
+      <section>
+      <Footer/>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      </section>      
+
     </div>
   )
 }
